@@ -16,6 +16,8 @@
 #include "FCDocument/FCDLibrary.h"
 #endif // _FCD_LIBRARY_
 
+#include "FUtils/FUTestBed.h"
+
 class FCDAnimation;
 class FCDEffectProfileFX;
 class FCDEffectStandard;
