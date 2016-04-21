@@ -142,9 +142,13 @@ inline int wcsicmp(const wchar_t* s1, const wchar_t* s2) { wchar_t c1 = *s1, c2 
 // Cross-platform needed functions
 #ifdef WIN32
 
-#define vsnprintf _vsnprintf
-#define snprintf _snprintf
+#if _MSC_VER < 1900
+	#define vsnprintf _vsnprintf
+	#define snprintf _snprintf
+#endif
+
 #define vsnwprintf _vsnwprintf
+
 #if _MSC_VER >= 1400 //vc8.0 use new secure
 	#define snwprintf _snwprintf_s
 #else
