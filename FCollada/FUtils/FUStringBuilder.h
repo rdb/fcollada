@@ -136,7 +136,9 @@ public:
 	inline void append(unsigned int i) { append((uint32) i); } /**< See above. */
 #endif
 #else
-	//inline void append(unsigned long i) { append((uint32) i); } /**< See above. */
+#ifdef __APPLE__
+	inline void append(unsigned long i) { append((uint32) i); } /**< See above. */
+#endif
 	inline void append(long i) { append((int32) i); } /**< See above. */
 #endif // platform-switch.
 

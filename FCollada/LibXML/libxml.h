@@ -13,7 +13,7 @@
 #define _CRT_SECURE_NO_DEPRECATE 1 // MSVS 2005 support.
 #endif // _WIN32
 
-#ifdef LINUX
+#if defined(LINUX) || defined(__APPLE__)
 #include <stdint.h>
 #endif
 

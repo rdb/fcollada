@@ -443,7 +443,7 @@ namespace fm
 			@param value The value to assign to the new entries in the list. */
 		void resize(size_t count, const CH& value)
 		{
-			Parent::resize(size + 1, value);
+			Parent::resize(count + 1, value);
 			Parent::back() = 0; // NULL-terminate
 		}
 	};
