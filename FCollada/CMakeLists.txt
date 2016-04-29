@@ -14,7 +14,7 @@ set(LIBRARY_NAME FCollada)
 
 if(BUILD_SHARED_LIBS)
     add_definitions(-DFCOLLADA_DLL)
-else()
+elseif(NOT MSVC)
     set(LIBRARY_NAME "${LIBRARY_NAME}S")
 endif()
 
@@ -57,9 +57,11 @@ file(GLOB SOURCE_FILES
 add_library(${LIBRARY_NAME} ${SOURCE_FILES})
 target_link_libraries(${LIBRARY_NAME} ${CMAKE_DL_LIBS})
 
-set_target_properties(${LIBRARY_NAME} PROPERTIES
-    OUTPUT_NAME_DEBUG ${LIBRARY_NAME}D
-)
+if(NOT MSVC)
+    set_target_properties(${LIBRARY_NAME} PROPERTIES
+        OUTPUT_NAME_DEBUG ${LIBRARY_NAME}D
+    )
+endif()
 
 install(TARGETS ${LIBRARY_NAME} DESTINATION lib)
 
