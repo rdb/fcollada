@@ -8,9 +8,6 @@
 
 #include "StdAfx.h"
 #include "FCDParameterAnimatable.h"
-#if !defined (__APPLE__) && !defined(LINUX)
-#include "FCDParameterAnimatable.hpp"
-#endif
 #include "FCDAnimated.h"
 #include <FUtils/FUParameterizable.h>
 #include <FMath/FMAngleAxis.h>
