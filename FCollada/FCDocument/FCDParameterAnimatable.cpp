@@ -280,6 +280,25 @@ template <> FCDAnimated* FCDParameterListAnimatableColor4::CreateAnimated(size_t
 	return new FCDAnimated((FCDObject*) GetParent(), 4, FCDAnimatedStandardQualifiers::RGBA, _values);
 }
 
+template class FCDParameterAnimatableT<float, 0>;
+template class FCDParameterAnimatableT<FMVector2, 0>;
+template class FCDParameterAnimatableT<FMVector3, 0>;
+template class FCDParameterAnimatableT<FMVector3, 1>;
+template class FCDParameterAnimatableT<FMVector4, 0>;
+template class FCDParameterAnimatableT<FMVector4, 1>;
+template class FCDParameterAnimatableT<FMMatrix44, 0>;
+template class FCDParameterAnimatableT<FMSkew, 0>;
+template class FCDParameterAnimatableT<FMLookAt, 0>;
+template class FCDParameterAnimatableT<FMAngleAxis, 0>;
+
+template class FCDParameterListAnimatableT<float, 0>;
+template class FCDParameterListAnimatableT<FMVector2, 0>;
+template class FCDParameterListAnimatableT<FMVector3, 0>;
+template class FCDParameterListAnimatableT<FMVector3, 1>;
+template class FCDParameterListAnimatableT<FMVector4, 0>;
+template class FCDParameterListAnimatableT<FMVector4, 1>;
+
+#if 0
 //
 // Templatization Trick
 //
@@ -355,4 +374,4 @@ extern void TrickLinkerFCDParameterAnimatable()
 	TrickLinkerFCDParameterListAnimatableT<FMVector4, 0>(FMVector4::Zero);
 	TrickLinkerFCDParameterListAnimatableT<FMVector4, 1>(FMVector4::Zero);
 }
-
+#endif

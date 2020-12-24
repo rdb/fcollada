@@ -6,6 +6,9 @@
 	MIT License: http://www.opensource.org/licenses/mit-license.php
 */
 
+#ifndef _FCD_PARAMETER_ANIMATABLE_HPP_
+#define _FCD_PARAMETER_ANIMATABLE_HPP_
+
 #ifndef _FCD_ANIMATED_H_
 #include "FCDocument/FCDAnimated.h"
 #endif // _FCD_ANIMATED_H_
@@ -215,3 +218,4 @@ void FCDParameterListAnimatableT<TYPE, QUALIFIERS>::OnPotentialSizeChange()
 	}
 }
 
+#endif // _FCD_PARAMETER_ANIMATABLE_HPP_
