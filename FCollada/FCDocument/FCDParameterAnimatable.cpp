@@ -8,9 +8,6 @@
 
 #include "StdAfx.h"
 #include "FCDParameterAnimatable.h"
-#if !defined (__APPLE__) && !defined(LINUX)
-#include "FCDParameterAnimatable.hpp"
-#endif
 #include "FCDAnimated.h"
 #include <FUtils/FUParameterizable.h>
 #include <FMath/FMAngleAxis.h>
@@ -280,79 +277,20 @@ template <> FCDAnimated* FCDParameterListAnimatableColor4::CreateAnimated(size_t
 	return new FCDAnimated((FCDObject*) GetParent(), 4, FCDAnimatedStandardQualifiers::RGBA, _values);
 }
 
-//
-// Templatization Trick
-//
-template <class T, int Q> void TrickLinkerFCDParameterAnimatableT(const T& value)
-{
-	FCDParameterAnimatableT<T, Q> v1((FUParameterizable*) NULL), v2((FUParameterizable*) NULL, value);
-	if (v1 == value) v1 = value;
-	T bb = (T) v1; (void) bb;
-	T& bb2 = (T&) v1; (void) bb2;
-	const T& bb3 = (const T&) v2; (void) bb3;
-	*v1;
-	v1.operator->();
-	v1.operator*();
-	*const_cast<const FCDParameterAnimatableT<T, Q>&>(v1);
-	const_cast<const FCDParameterAnimatableT<T, Q>&>(v1).operator->();
-	const_cast<const FCDParameterAnimatableT<T, Q>&>(v1).operator*();
-	FCDAnimated* aa = v1.GetAnimated();
-	if (v1.IsAnimated()) ++aa;
-}
+template class FCDParameterAnimatableT<float, 0>;
+template class FCDParameterAnimatableT<FMVector2, 0>;
+template class FCDParameterAnimatableT<FMVector3, 0>;
+template class FCDParameterAnimatableT<FMVector3, 1>;
+template class FCDParameterAnimatableT<FMVector4, 0>;
+template class FCDParameterAnimatableT<FMVector4, 1>;
+template class FCDParameterAnimatableT<FMMatrix44, 0>;
+template class FCDParameterAnimatableT<FMSkew, 0>;
+template class FCDParameterAnimatableT<FMLookAt, 0>;
+template class FCDParameterAnimatableT<FMAngleAxis, 0>;
 
-
-template <class T, int Q> void TrickLinkerFCDParameterListAnimatableT(const T& value)
-{
-	FCDParameterListAnimatableT<T, Q> v1((FUParameterizable*) NULL);
-	v1.push_back(value);
-	v1 = v1;
-	v1.set(0, value);
-	v1.clear();
-	v1.insert(0, value);
-	v1.insert(0, &value, 1);
-	v1.insert(0, 5, value);
-	v1.erase((size_t) 5);
-	v1.erase(value);
-	v1.erase((size_t) 0, (size_t) 4);
-	v1.push_back(v1.front());
-	v1.push_front(v1.back());
-	v1.pop_back();
-	v1.pop_front();
-	v1.resize(4);
-	v1.resize(6, value);
-	v1.empty();
-	v1.size();
-	if (v1.contains(value) && v1.empty()) v1.find(value);
-	v1[0];
-	v1.at(0);
-	FCDAnimated* aa = v1.GetAnimated(0);
-	v1.GetDataList();
-	if (v1.IsAnimated()) ++aa;
-	const_cast<const FCDParameterListAnimatableT<T, Q>&>(v1).front();
-	const_cast<const FCDParameterListAnimatableT<T, Q>&>(v1).back();
-	const_cast<const FCDParameterListAnimatableT<T, Q>&>(v1).GetDataList();
-}
-
-extern void TrickLinkerFCDParameterAnimatable()
-{
-	// Primitive animatables
-	TrickLinkerFCDParameterAnimatableT<float, 0>(0.03f);
-	TrickLinkerFCDParameterAnimatableT<FMVector2, 0>(FMVector2::XAxis);
-	TrickLinkerFCDParameterAnimatableT<FMVector3, 0>(FMVector3::YAxis);
-	TrickLinkerFCDParameterAnimatableT<FMVector3, 1>(FMVector3::YAxis);
-	TrickLinkerFCDParameterAnimatableT<FMVector4, 0>(FMVector4::Zero);
-	TrickLinkerFCDParameterAnimatableT<FMVector4, 1>(FMVector4::Zero);
-	TrickLinkerFCDParameterAnimatableT<FMMatrix44, 0>(FMMatrix44::Identity);
-	TrickLinkerFCDParameterAnimatableT<FMSkew, 0>(FMSkew());
-	TrickLinkerFCDParameterAnimatableT<FMLookAt, 0>(FMLookAt());
-	TrickLinkerFCDParameterAnimatableT<FMAngleAxis, 0>(FMAngleAxis());
-
-	// Primitive list animatables
-	TrickLinkerFCDParameterListAnimatableT<float, 0>(0.03f);
-	TrickLinkerFCDParameterListAnimatableT<FMVector2, 0>(FMVector2::XAxis);
-	TrickLinkerFCDParameterListAnimatableT<FMVector3, 0>(FMVector3::YAxis);
-	TrickLinkerFCDParameterListAnimatableT<FMVector3, 1>(FMVector3::YAxis);
-	TrickLinkerFCDParameterListAnimatableT<FMVector4, 0>(FMVector4::Zero);
-	TrickLinkerFCDParameterListAnimatableT<FMVector4, 1>(FMVector4::Zero);
-}
-
+template class FCDParameterListAnimatableT<float, 0>;
+template class FCDParameterListAnimatableT<FMVector2, 0>;
+template class FCDParameterListAnimatableT<FMVector3, 0>;
+template class FCDParameterListAnimatableT<FMVector3, 1>;
+template class FCDParameterListAnimatableT<FMVector4, 0>;
+template class FCDParameterListAnimatableT<FMVector4, 1>;
