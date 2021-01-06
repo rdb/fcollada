@@ -5,7 +5,7 @@ includedir=${prefix}/include
 
 Name: fcollada
 Description: FCollada library for working with COLLADA 3D models
-Version: github.com/matthewlai/fcollada/commit/9325c758e76b218829cca82863a2389c9fc72534
+Version: 3.5.1.0
 Requires:
 Conflicts:
 Libs: -L${libdir} -lFColladaSD
