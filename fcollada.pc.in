@@ -1,0 +1,12 @@
+prefix=@DEST_DIR@
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: fcollada
+Description: FCollada library for working with COLLADA 3D models
+Version: github.com/matthewlai/fcollada/commit/9325c758e76b218829cca82863a2389c9fc72534
+Requires:
+Conflicts:
+Libs: -L${libdir} -lFColladaSD
+Cflags: -I${includedir}/FCollada
