@@ -16,7 +16,7 @@
 #include <errno.h>
 #endif
 
-#ifdef LINUX
+#ifdef __linux__
 #include "unistd.h"
 #endif // LINUX
 
@@ -39,7 +39,7 @@
 #include <zlib.h>
 #endif
 
-#if defined(__APPLE__) || defined(LINUX)
+#if defined(__APPLE__) || defined(__linux__)
 #define _read read
 #define _write write
 #define _close close

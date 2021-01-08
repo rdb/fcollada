@@ -30,7 +30,7 @@
 #if defined(WIN32)
 template <class T> class FCOLLADA_EXPORT FCDLibrary; /**< Trick Doxygen. */
 template <class T> class FCOLLADA_EXPORT FUUniqueStringMapT; /**< Trick Doxygen. */
-#elif defined(LINUX) || defined(__APPLE__)
+#elif defined(__linux__) || defined(__APPLE__)
 template <class T> class FCDLibrary; /**< Trick Doxygen. */
 template <class T> class FUUniqueStringMapT; /**< Trick Doxygen. */
 #endif // LINUX

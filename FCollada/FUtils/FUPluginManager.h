@@ -48,7 +48,7 @@ private:
 		fstring filename;
 #if defined(WIN32)
 		HMODULE module;
-#elif defined(__APPLE__) || defined(LINUX)
+#elif defined(__APPLE__) || defined(__linux__)
 		void* module;
 #endif // WIN32
 

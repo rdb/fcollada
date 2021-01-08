@@ -25,7 +25,7 @@
 	#include <mach-o/dyld.h>
 	typedef int (*NSGetExecutablePathProcPtr)(char *buf, size_t *bufsize);
 	#include <sys/stat.h>
-#elif defined(LINUX)
+#elif defined(__linux__)
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
@@ -211,7 +211,7 @@ bool FUFileManager::MakeDirectory(const fstring& directory)
 	if (_mkdir(TO_STRING(absoluteDirectory).c_str()) == 0) return true;
 	errno_t err; _get_errno(&err);
 	if (err == EEXIST) return true;
-#elif defined(LINUX) || defined(__APPLE__)
+#elif defined(__linux__) || defined(__APPLE__)
 	if (mkdir(TO_STRING(absoluteDirectory).c_str(), ~0u) == 0) return true; // I think this means all permissions..
 #endif // WIN32
 
@@ -372,7 +372,7 @@ fstring FUFileManager::GetApplicationFolderName()
 	GetModuleFileName(NULL, buffer, 1024);
 	buffer[1023] = 0;
 	_uri = buffer;
-#elif defined(LINUX)
+#elif defined(__linux__)
 	char path[1024];
 	char path2[1024];
 	struct stat stat_buf;
