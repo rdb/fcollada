@@ -43,10 +43,10 @@ if(HAVE_UNISTD_H)
 endif()
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/LibXML/include)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../External/LibXML/include)
 
 file(GLOB SOURCE_FILES
-    "LibXML/*.c"
+	"../External/LibXML/*.c"
     "FCDocument/*.cpp"
     "FMath/*.cpp"
     "FUtils/*.cpp"
