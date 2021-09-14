@@ -2,7 +2,7 @@
 	Copyright (C) 2005-2007 Feeling Software Inc.
 	Portions of the code are:
 	Copyright (C) 2005-2007 Sony Computer Entertainment America
-	
+
 	MIT License: http://www.opensource.org/licenses/mit-license.php
 */
 
@@ -159,7 +159,7 @@ FCOLLADA_EXPORT uint32 FUStringConversion::HexToUInt32(const CH** value, uint32 
 	if (value == NULL || *value == NULL || **value == 0) return 0;
 
 	const CH* s = *value;
-	CH c; 
+	CH c;
 
 	// Skip any '0x' prefix.
 	if (*s == '0' && (*(s+1) == 'x' || *(s+1) == 'X')) s += 2;
@@ -183,7 +183,7 @@ FCOLLADA_EXPORT void FUStringConversion::ToMatrix(const CH** s, FMMatrix44& mx)
 {
 	if (s != NULL && *s != NULL && **s != 0)
 	{
-		// COLLADA is Column major 
+		// COLLADA is Column major
 		mx[0][0] = ToFloat(s); mx[1][0] = ToFloat(s); mx[2][0] = ToFloat(s); mx[3][0] = ToFloat(s);
 		mx[0][1] = ToFloat(s); mx[1][1] = ToFloat(s); mx[2][1] = ToFloat(s); mx[3][1] = ToFloat(s);
 		mx[0][2] = ToFloat(s); mx[1][2] = ToFloat(s); mx[2][2] = ToFloat(s); mx[3][2] = ToFloat(s);
@@ -245,7 +245,7 @@ FCOLLADA_EXPORT FMVector4 FUStringConversion::ToVector4(const CH** value)
 		p.x = ToFloat(value);
 		p.y = ToFloat(value);
 		p.z = ToFloat(value);
-		
+
 		// If the fourth component is not provided, default to 1.0f.
 		p.w = (*value != NULL && **value != 0) ? ToFloat(value) : 1.0f;
 	}
@@ -331,10 +331,10 @@ FCOLLADA_EXPORT void FUStringConversion::ToInt32List(const CH* value, Int32List&
 {
 	size_t length = 0;
 	if (value != NULL && *value != 0)
-	{ 
+	{
 		// Read in values within the already allocated space.
 		size_t oldLength = array.size();
-		for (; length < oldLength && *value != 0; ++length) array[length] = ToInt32(&value);		
+		for (; length < oldLength && *value != 0; ++length) array[length] = ToInt32(&value);
 
 		// Count the value-space necessary to parse in the rest of the string.
 		size_t count = CountValues(value);
@@ -350,7 +350,7 @@ FCOLLADA_EXPORT void FUStringConversion::ToUInt32List(const CH* value, UInt32Lis
 {
 	size_t length = 0;
 	if (value != NULL && *value != 0)
-	{ 
+	{
 		// Read in values within the already allocated space.
 		size_t oldLength = array.size();
 		for (; length < oldLength && *value != 0; ++length) array[length] = ToUInt32(&value);
@@ -369,10 +369,10 @@ FCOLLADA_EXPORT void FUStringConversion::ToFloatList(const CH* value, FloatList&
 {
 	size_t length = 0;
 	if (value != NULL && *value != 0)
-	{ 
+	{
 		// Read in values within the already allocated space.
 		size_t oldLength = array.size();
-		for (; length < oldLength && *value != 0; ++length) array[length] = ToFloat(&value); 
+		for (; length < oldLength && *value != 0; ++length) array[length] = ToFloat(&value);
 
 		// Count the value-space necessary to parse in the rest of the string.
 		size_t count = CountValues(value);
@@ -389,7 +389,7 @@ FCOLLADA_EXPORT void FUStringConversion::ToInterleavedFloatList(const CH* value,
 	size_t stride = arrays.size();
 	size_t validCount = 0;
 	if (value != NULL && *value != 0 && stride > 0)
-	{ 
+	{
 		size_t length = arrays[0]->size();
 		for (size_t count = 0; count < length && *value != 0; ++count, ++validCount)
 		{
@@ -400,7 +400,7 @@ FCOLLADA_EXPORT void FUStringConversion::ToInterleavedFloatList(const CH* value,
 				else ToFloat(&value);
 			}
 		}
-		
+
 		if (*value != 0)
 		{
 			// Count the number of additional values to add to the array.
@@ -438,7 +438,7 @@ FCOLLADA_EXPORT void FUStringConversion::ToInterleavedUInt32List(const CH* value
 	size_t stride = arrays.size();
 	size_t validCount = 0;
 	if (value != NULL && *value != 0 && stride > 0)
-	{ 
+	{
 		size_t length = arrays[0]->size();
 		for (size_t count = 0; count < length && *value != 0; ++count, ++validCount)
 		{
@@ -449,7 +449,7 @@ FCOLLADA_EXPORT void FUStringConversion::ToInterleavedUInt32List(const CH* value
 				else ToUInt32(&value);
 			}
 		}
-		
+
 		if (*value != 0)
 		{
 			// Count the number of additional values to add to the array.
@@ -487,13 +487,13 @@ FCOLLADA_EXPORT void FUStringConversion::ToMatrixList(const CH* value, FMMatrix4
 {
 	size_t count = 0;
 	if (value != NULL && *value != 0)
-	{ 
+	{
 		size_t length = array.size();
 		for (; count < length && *value != 0; ++count)
 		{
 			ToMatrix(&value, array[count]);
 		}
-		
+
 		while (*value != 0)
 		{
 			FMMatrix44List::iterator it = array.insert(array.end(), FMMatrix44::Identity);
@@ -509,13 +509,13 @@ FCOLLADA_EXPORT void FUStringConversion::ToVector2List(const CH* value, FMVector
 {
 	size_t count = 0;
 	if (value != NULL && *value != 0)
-	{ 
+	{
 		size_t length = array.size();
 		for (; count < length && *value != 0; ++count)
 		{
 			array[count] = ToVector2(&value);
 		}
-		
+
 		while (*value != 0) { array.push_back(ToVector2(&value)); ++count; }
 	}
 	array.resize(count);
@@ -526,13 +526,13 @@ FCOLLADA_EXPORT void FUStringConversion::ToVector3List(const CH* value, FMVector
 {
 	size_t count = 0;
 	if (value != NULL && *value != 0)
-	{ 
+	{
 		size_t length = array.size();
 		for (; count < length && *value != 0; ++count)
 		{
 			array[count] = ToVector3(&value);
 		}
-		
+
 		while (*value != 0) { array.push_back(ToVector3(&value)); ++count; }
 	}
 	array.resize(count);
@@ -543,13 +543,13 @@ FCOLLADA_EXPORT void FUStringConversion::ToVector4List(const CH* value, FMVector
 {
 	size_t count = 0;
 	if (value != NULL && *value != 0)
-	{ 
+	{
 		size_t length = array.size();
 		for (; count < length && *value != 0; ++count)
 		{
 			array[count] = ToVector4(&value);
 		}
-		
+
 		while (*value != 0) { array.push_back(ToVector4(&value)); ++count; }
 	}
 	array.resize(count);

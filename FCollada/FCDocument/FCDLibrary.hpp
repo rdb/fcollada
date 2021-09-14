@@ -2,7 +2,7 @@
 	Copyright (C) 2005-2007 Feeling Software Inc.
 	Portions of the code are:
 	Copyright (C) 2005-2007 Sony Computer Entertainment America
-	
+
 	MIT License: http://www.opensource.org/licenses/mit-license.php
 */
 /*
@@ -54,7 +54,7 @@ const T* FCDLibrary<T>::FindDaeId(const fm::string& daeId) const
 #ifdef _DEBUG
 	// [staylor] June 12 2007 - !!Code change verification check!!
 	// When fixing up the FCPlugin archive merge, removed SkipPound
-	// here (Should be obsolete).  If you see this code much past this 
+	// here (Should be obsolete).  If you see this code much past this
 	// date, feel free to remove it.
 	FUAssert (daeId.empty() || daeId[0] != '#',);
 #endif
@@ -83,7 +83,7 @@ T* FCDLibrary<T>::AddEntity()
 
 
 template <class T>
-void FCDLibrary<T>::AddEntity(T* entity) 
-{ 
-	entities.push_back(entity); SetNewChildFlag(); 
+void FCDLibrary<T>::AddEntity(T* entity)
+{
+	entities.push_back(entity); SetNewChildFlag();
 }

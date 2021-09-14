@@ -2,7 +2,7 @@
 	Copyright (C) 2005-2007 Feeling Software Inc.
 	Portions of the code are:
 	Copyright (C) 2005-2007 Sony Computer Entertainment America
-	
+
 	MIT License: http://www.opensource.org/licenses/mit-license.php
 */
 
@@ -60,7 +60,7 @@ bool FCDEffectParameterAnimatableT<PrimitiveType, Qualifiers>::IsValueEqual(FCDE
 {
 	if (!FCDEffectParameter::IsValueEqual(parameter)) return false;
 	FCDEffectParameterAnimatableT<PrimitiveType, Qualifiers>* param = (FCDEffectParameterAnimatableT<PrimitiveType, Qualifiers>*) parameter;
-	
+
 	if (floatType != param->GetFloatType()) return false;
 	return IsEquivalent(value, param->GetValue());
 }

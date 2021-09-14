@@ -2,7 +2,7 @@
 	Copyright (C) 2005-2007 Feeling Software Inc.
 	Portions of the code are:
 	Copyright (C) 2005-2007 Sony Computer Entertainment America
-	
+
 	MIT License: http://www.opensource.org/licenses/mit-license.php
 */
 /*
@@ -89,7 +89,7 @@ FUStringBuilderT<Char>::FUStringBuilderT(const String& sz)
 	this->buffer = NULL;
 	this->size = 0;
 	this->reserved = 0;
-	
+
 	reserve(sz.size() + 32);
 	append(sz.c_str());
 }
@@ -300,7 +300,7 @@ void FUStringBuilderT<Char>::append(const FMVector3& v)
 	{
 		append((Char)' ');
 	}
-	append(v.x); append((Char)' '); append(v.y); append((Char)' '); append(v.z); 
+	append(v.x); append((Char)' '); append(v.y); append((Char)' '); append(v.z);
 }
 
 template <class Char>
@@ -310,7 +310,7 @@ void FUStringBuilderT<Char>::append(const FMVector4& v)
 	{
 		append((Char)' ');
 	}
-	append(v.x); append((Char)' '); append(v.y); append((Char)' '); append(v.z); append((Char)' '); append(v.w); 
+	append(v.x); append((Char)' '); append(v.y); append((Char)' '); append(v.z); append((Char)' '); append(v.w);
 }
 
 template <class Char>
@@ -352,7 +352,7 @@ void FUStringBuilderT<Char>::remove(int32 start, int32 end)
 	}
 }
 
-template <class Char> 
+template <class Char>
 const Char* FUStringBuilderT<Char>::ToCharPtr() const
 {
 	FUStringBuilderT<Char>* ncThis = const_cast< FUStringBuilderT<Char>* >(this);

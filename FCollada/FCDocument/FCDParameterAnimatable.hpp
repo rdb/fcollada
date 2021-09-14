@@ -2,7 +2,7 @@
 	Copyright (C) 2005-2007 Feeling Software Inc.
 	Portions of the code are:
 	Copyright (C) 2005-2007 Sony Computer Entertainment America
-	
+
 	MIT License: http://www.opensource.org/licenses/mit-license.php
 */
 
@@ -70,7 +70,7 @@ void FCDParameterListAnimatableT<TYPE, QUALIFIERS>::insert(size_t index, const T
 {
 	values.insert(values.begin() + index, value);
 	GetParent()->SetStructureChangedFlag();
-	GetParent()->SetDirtyFlag(); 
+	GetParent()->SetDirtyFlag();
 	OnInsertion(index, 1);
 	OnPotentialSizeChange();
 }
@@ -80,7 +80,7 @@ void FCDParameterListAnimatableT<TYPE, QUALIFIERS>::insert(size_t index, const T
 {
 	values.insert(values.begin() + index, _values, count);
 	GetParent()->SetStructureChangedFlag();
-	GetParent()->SetDirtyFlag(); 
+	GetParent()->SetDirtyFlag();
 	OnInsertion(index, count);
 	OnPotentialSizeChange();
 }
@@ -90,7 +90,7 @@ void FCDParameterListAnimatableT<TYPE, QUALIFIERS>::insert(size_t index, size_t 
 {
 	values.insert(values.begin() + index, count, value);
 	GetParent()->SetStructureChangedFlag();
-	GetParent()->SetDirtyFlag(); 
+	GetParent()->SetDirtyFlag();
 	OnInsertion(index, count);
 	OnPotentialSizeChange();
 }
@@ -100,7 +100,7 @@ void FCDParameterListAnimatableT<TYPE, QUALIFIERS>::erase(size_t index)
 {
 	values.erase(index);
 	GetParent()->SetStructureChangedFlag();
-	GetParent()->SetDirtyFlag(); 
+	GetParent()->SetDirtyFlag();
 	OnRemoval(index, 1);
 	OnPotentialSizeChange();
 }
@@ -118,7 +118,7 @@ void FCDParameterListAnimatableT<TYPE, QUALIFIERS>::erase(size_t start, size_t e
 {
 	values.erase(values.begin() + start, values.begin() + end);
 	GetParent()->SetStructureChangedFlag();
-	GetParent()->SetDirtyFlag(); 
+	GetParent()->SetDirtyFlag();
 	OnRemoval(start, end - start);
 	OnPotentialSizeChange();
 }
@@ -129,7 +129,7 @@ void FCDParameterListAnimatableT<TYPE, QUALIFIERS>::clear()
 	OnRemoval(0, values.size());
 	values.clear();
 	GetParent()->SetStructureChangedFlag();
-	GetParent()->SetDirtyFlag(); 
+	GetParent()->SetDirtyFlag();
 	OnPotentialSizeChange();
 }
 
@@ -137,18 +137,18 @@ template <class TYPE, int QUALIFIERS>
 void FCDParameterListAnimatableT<TYPE, QUALIFIERS>::push_back(const TYPE& value)
 {
 	OnInsertion(values.size(), 1);
-	values.push_back(value); 
+	values.push_back(value);
 	GetParent()->SetStructureChangedFlag();
-	GetParent()->SetDirtyFlag(); 
+	GetParent()->SetDirtyFlag();
 	OnPotentialSizeChange();
 }
 
 template <class TYPE, int QUALIFIERS>
-void FCDParameterListAnimatableT<TYPE, QUALIFIERS>::push_front(const TYPE& value) 
+void FCDParameterListAnimatableT<TYPE, QUALIFIERS>::push_front(const TYPE& value)
 {
-	values.push_front(value); 
+	values.push_front(value);
 	GetParent()->SetStructureChangedFlag();
-	GetParent()->SetDirtyFlag(); 
+	GetParent()->SetDirtyFlag();
 	OnInsertion(0, 1);
 	OnPotentialSizeChange();
 }
@@ -159,16 +159,16 @@ void FCDParameterListAnimatableT<TYPE, QUALIFIERS>::pop_back()
 	OnRemoval(size() - 1, 1);
 	values.pop_back();
 	GetParent()->SetStructureChangedFlag();
-	GetParent()->SetDirtyFlag(); 
+	GetParent()->SetDirtyFlag();
 	OnPotentialSizeChange();
 }
 
 template <class TYPE, int QUALIFIERS>
-void FCDParameterListAnimatableT<TYPE, QUALIFIERS>::pop_front() 
+void FCDParameterListAnimatableT<TYPE, QUALIFIERS>::pop_front()
 {
-	values.pop_front(); 
+	values.pop_front();
 	GetParent()->SetStructureChangedFlag();
-	GetParent()->SetDirtyFlag(); 
+	GetParent()->SetDirtyFlag();
 	OnRemoval(0, 1);
 	OnPotentialSizeChange();
 }
