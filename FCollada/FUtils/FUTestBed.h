@@ -154,7 +154,7 @@ public: \
 
 // The code will still be compiled, but the linker should take it out.
 #define TESTSUITE_START(suiteName) \
-	extern FUTestSuite* _test##suiteName = NULL; \
+	FUTestSuite* _test##suiteName = NULL; \
 	inline bool __testCode##suiteName(FULogFile& fileOut, const char* szTestName) { { fileOut; szTestName;
 #define TESTSUITE_TEST(testIndex, testName) } {
 #define TESTSUITE_END } return true; }
