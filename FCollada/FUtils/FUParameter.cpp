@@ -9,10 +9,6 @@
 #include "StdAfx.h"
 #include "FUParameterizable.h"
 #include "FUParameter.h"
-#include <FCDocument/FCDParameterAnimatable.h>
-#if !defined(__APPLE__) && !defined(LINUX)
-#include "FUParameter.hpp"
-#endif
 
 extern void TrickLinkerFUParameter()
 {

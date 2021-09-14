@@ -213,7 +213,6 @@ install(FILES
     FUtils/FUObject.h
     FUtils/FUObjectType.h
     FUtils/FUParameter.h
-    FUtils/FUParameter.hpp
     FUtils/FUParameterizable.h
     FUtils/FUPlugin.h
     FUtils/FUPluginManager.h
