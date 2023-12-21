@@ -126,7 +126,7 @@ FUBoundingBox FUBoundingBox::Transform(const FMMatrix44& transform) const
 		FMVector3(maximum.x, minimum.y, minimum.z), FMVector3(maximum.x, minimum.y, maximum.z)
 	};
 
-	for (size_t i = 0; i < 6; ++i)
+	for (size_t i = 0; i < 3; ++i)
 	{
 		testPoints[i] = transform.TransformCoordinate(testPoints[i]);
 		transformedBoundingBox.Include(testPoints[i]);
