@@ -178,7 +178,7 @@ FUBoundingSphere FUBoundingSphere::Transform(const FMMatrix44& transform) const
 		FMVector3(0.0f, 0.0f, radius)
 	};
 
-	for (size_t i = 0; i < 6; ++i)
+	for (size_t i = 0; i < 3; ++i)
 	{
 		testPoints[i] = transform.TransformVector(testPoints[i]);
 		float lengthSquared = testPoints[i].LengthSquared();
