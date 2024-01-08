@@ -14,7 +14,7 @@
 #include "FCDEffectParameter.h"
 #include "FCDEffectParameterFactory.h"
 #include "FCDImage.h"
-#if !defined(__APPLE__) && !defined(LINUX)
+#if !defined(__APPLE__) && !defined(__linux__)
 #include "FCDEffectParameter.hpp"
 #endif
 

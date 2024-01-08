@@ -10,7 +10,7 @@
 #include "FUParameterizable.h"
 #include "FUParameter.h"
 #include <FCDocument/FCDParameterAnimatable.h>
-#if !defined(__APPLE__) && !defined(LINUX)
+#if !defined(__APPLE__) && !defined(__linux__)
 #include "FUParameter.hpp"
 #endif
 
