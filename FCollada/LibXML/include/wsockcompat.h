@@ -10,7 +10,7 @@
 #elif defined (WIN32)
 #undef HAVE_ERRNO_H
 #include <winsock2.h>
-#elif defined (LINUX)
+#elif defined (__linux__)
 #include <sys/socket.h>
 #endif
 
