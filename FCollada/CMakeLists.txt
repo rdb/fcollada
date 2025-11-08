@@ -1,6 +1,3 @@
-cmake_minimum_required(VERSION 2.6)
-project(FCollada)
-
 if(NOT CMAKE_BUILD_TYPE)
     message(STATUS "No build type selected, defaulting to Debug")
     set(CMAKE_BUILD_TYPE "Debug")

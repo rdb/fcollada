@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 2.6...3.10)
+project(FCollada)
 
 add_subdirectory(FCollada)
 
